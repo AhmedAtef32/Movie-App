@@ -13,7 +13,7 @@
 
   <owl-carousel-o [options]="customOptions" #carousel>
 
-    @for (moive of trendingMovieThisWeek; track moive.id) {
+    @for (moive of movies; track moive.id) {
     <ng-template carouselSlide>
 
     <app-movie-card [moive]="moive" [imagePath]="imagePath"></app-movie-card>

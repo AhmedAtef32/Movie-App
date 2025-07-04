@@ -1,7 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { MoivesService } from '../../../../featured/services/moive/moives.service';
 import { ItrendingMovie } from '../../../../featured/interfaces/itrending-movie';
 import { MovieCardComponent } from '../../ui/movie-card/movie-card.component';
 
@@ -11,25 +10,10 @@ import { MovieCardComponent } from '../../ui/movie-card/movie-card.component';
   templateUrl: './reuseable-carousel.component.html',
   styleUrl: './reuseable-carousel.component.css',
 })
-export class ReuseableCarouselComponent implements OnInit {
-  private readonly _movieService = inject(MoivesService);
-  trendingMovieThisWeek!: ItrendingMovie[];
-  imagePath: string = this._movieService.PathImageUrl;
-  ngOnInit(): void {
-    this.getTrendingMoviesThisWeek();
-  }
+export class ReuseableCarouselComponent  {
+ @Input({required: true}) movies!: ItrendingMovie[];
+ @Input({required: true}) imagePath!: string ;
 
-  getTrendingMoviesThisWeek() {
-    return this._movieService.getTrendingMoviesThisWeek().subscribe({
-      next: (res) => {
-        console.log(res.results);
-        this.trendingMovieThisWeek = res.results;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
 
   customOptions: OwlOptions = {
     loop: false,
