@@ -1,0 +1,26 @@
+<div class="relative my-4">
+
+  <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
+    <button (click)="carousel.prev()"
+      class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
+      <i class="pi pi-angle-left" style="font-size: 35px;"></i>
+    </button>
+    <button (click)="carousel.next()"
+      class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
+      <i class="pi pi-angle-right" style="font-size: 35px;"></i>
+    </button>
+  </div>
+
+  <owl-carousel-o [options]="customOptions" #carousel>
+
+    @for (moive of trendingMovieThisWeek; track moive.id) {
+    <ng-template carouselSlide>
+
+    <app-movie-card [moive]="moive" [imagePath]="imagePath"></app-movie-card>
+
+    </ng-template>
+    }
+
+  </owl-carousel-o>
+
+</div>

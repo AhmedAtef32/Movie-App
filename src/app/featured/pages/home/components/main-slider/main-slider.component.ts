@@ -31,9 +31,7 @@ ngOnInit() {
 getTrendingMovies(){
    this._movieService.getTrendingMovies().subscribe({
       next : (res)=>{
-        console.log(res)
         this.trendingMoive = res.results
-        console.log(this.trendingMoive)
         this.movieNumber.set(this.trendingMoive.length)
 
       },
@@ -51,8 +49,9 @@ customOptions: OwlOptions = {
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
     dots: false,
+    margin: 20,
     navSpeed: 700,
-    navText: ['<i class="pi pi-angle-left text-black"></i>', '<i class="pi pi-angle-right text-black"></i>'],
+    navText: ['', ''],
     responsive: {
       0: {
         items: 1

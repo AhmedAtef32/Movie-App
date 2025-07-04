@@ -1,0 +1,11 @@
+<div class="relative rounded-xl overflow-hidden group cursor-pointer">
+  <div class="w-full h-[350px]  ">
+    <img [src]="imagePath + moive.poster_path" [alt]="moive.title" class="w-full h-full   ">
+  </div>
+  <div
+    class="absolute bottom-0 left-0 right-0  p-4 h-full flex items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div>
+      <a class="bg-[rgba(255,255,255,0.6)] p-4 rounded-lg">Details <i class="pi pi-info-circle"></i></a>
+    </div>
+  </div>
+</div>

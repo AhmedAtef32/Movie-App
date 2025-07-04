@@ -16,15 +16,36 @@ export class MoivesService {
          'accept' : 'application/json'
         });
 
-  trendingMoive$:Observable<ItrendingMovie>|undefined;
+  trendingMoive$:Observable<ItrendingMovie[]>|undefined;
+  trendingMovieThisWeek$:Observable<ItrendingMovie[]>|undefined;
   PathImageUrl :string = 'https://image.tmdb.org/t/p/original';
+
+
+  /**
+   * This function will get the trending movies of the day from the API, the data will be cached
+   * so that it will not be requested again if called multiple times.
+   */
   getTrendingMovies():Observable<any>{
     if(!this.trendingMoive$){
-      this.trendingMoive$ = this.http.get<ItrendingMovie>(`${enviro.baseurl}/trending/all/day?api_key=${enviro.apikey}` ,
+      this.trendingMoive$ = this.http.get<ItrendingMovie[]>(`${enviro.baseurl}/trending/all/day?api_key=${enviro.apikey}` ,
          {headers : this.basicHeraders} )
          .pipe(shareReplay(1));
     }
     return this.trendingMoive$;
+  }
+
+
+  /**
+   * This function will get the trending movies of the week from the API, the data will be cached
+   * so that it will not be requested again if called multiple times.
+   */
+  getTrendingMoviesThisWeek():Observable<any>{
+    if(!this.trendingMovieThisWeek$){
+      this.trendingMovieThisWeek$ = this.http.get<ItrendingMovie[]>(`${enviro.baseurl}/trending/all/week?api_key=${enviro.apikey}` ,
+         {headers : this.basicHeraders} )
+         .pipe(shareReplay(1));
+    }
+    return this.trendingMovieThisWeek$;
   }
 
 }

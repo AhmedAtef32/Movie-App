@@ -1,5 +1,7 @@
 <section class="relative">
-  <div class="absolute top-1/2 left-0 right-0 flex justify-between z-40">
+
+
+  <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
     <button (click)="prevBtn()" (click)="carousel.prev()"
       class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
       <i class="pi pi-angle-left" style="font-size: 35px;"></i>
@@ -10,43 +12,44 @@
     </button>
   </div>
 
-  <owl-carousel-o [options]="customOptions" #carousel >
+  <owl-carousel-o [options]="customOptions" #carousel>
 
     @for (trendMovie of trendingMoive; track trendMovie.id) {
     <ng-template carouselSlide>
-      <div class="relative h-[95vh] md:h-[90vh] w-full">
+      <div class="relative h-[90vh]  w-full">
         <div class="relative h-full w-full">
           <img [src]=" pathImage+trendMovie.backdrop_path" alt="Movie Image" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0C1321]"></div>
         </div>
-        <div class="absolute  bottom-0 left-1/2 md:left-[5%]  top-[50%] md:top-[60%] transform -translate-x-1/2 md:-translate-x-0  ">
-          <h2 class="text-white text-3xl font-bold text-center md:text-start md:text-4xl mb-4 animate__animated animate__bounce">{{ trendMovie.title }}
+
+        <div
+          class="absolute  bottom-0 left-1/2 md:left-[5%]  top-[50%] md:top-[60%] transform -translate-x-1/2 md:-translate-x-0  ">
+          <h2
+            class="text-white text-xl font-bold text-center md:text-start md:text-4xl mb-4 ">
+            {{ trendMovie.title }}
           </h2>
 
-            <div class="mt-2 movie__overview flex items-center justify-center md:justify-start  gap-2">
-              <p class="rate text-white "><i class="pi pi-star-fill text-[yellow]"></i> {{ trendMovie.vote_average}}
-              </p>
-              <p class="text-white mt-[-2px]">|</p>
-              <p class="text-white">{{ trendMovie.release_date | date: 'yyyy' }}</p>
-              <p class="text-white mt-[-2px]">|</p>
-              <p class="text-white">{{ trendMovie.original_language }}</p>
-            </div>
+          <div class="mt-2 movie__overview flex items-center justify-center md:justify-start  gap-2">
+            <p class="rate text-white "><i class="pi pi-star-fill text-[yellow]"></i> {{ trendMovie.vote_average}}
+            </p>
+            <p class="text-white mt-[-2px]">|</p>
+            <p class="text-white">{{ trendMovie.release_date | date: 'yyyy' }}</p>
+            <p class="text-white mt-[-2px]">|</p>
+            <p class="text-white">{{ trendMovie.original_language }}</p>
+          </div>
 
-
-
-          <p class="text-center text-white md:w-1/2 text-lg font-bold  md:text-start mt-4">{{ trendMovie.overview |
+          <p class="text-center text-white md:w-[75%] text-lg font-bold  md:text-start mt-4">{{ trendMovie.overview |
             term}}.....</p>
-          <div class=" flex items-center justify-center mt-4 md:hidden">
+
+          <div class=" flex items-center justify-center md:justify-start mt-4 lg:hidden">
             <button
               class="bg-[#38BDF8] p-3 rounded-full cursor-pointer hover:bg-[#38bff8d1] transition-all duration-200"><i
                 class="fa-solid fa-play"></i> Watch trailer now </button>
           </div>
 
-
-
         </div>
 
-        <div class="absolute top-[60%] md:left-[60%]  transform -translate-x-1/2  hidden md:block">
+        <div class="absolute top-[60%] md:left-[60%]  transform -translate-x-1/2  hidden lg:block">
           <button
             class=" p-3 rounded-full cursor-pointer  transition-all duration-200 flex items-center justify-center gap-4 text-[24px] group text-white hover:text-[#38BDF8] text-4xl font-bold">
             <p
@@ -65,11 +68,13 @@
   </owl-carousel-o>
 
   <div
-    class="absolute top-[60%] right-[5%] z-50 hidden items-center justify-center rotate-[270deg] gap-4 text-white text-[20px] lg:flex  ">
+    class="absolute top-[60%] right-[5%] z-50 hidden items-center justify-center rotate-[270deg] gap-4 text-white text-[20px] md:flex  ">
 
     <p class="rotate-[90deg]"> {{counter()}} </p>
+
     <div class="  bg-gray-400 rounded-full h-1  w-[110px]">
-      <div class="bg-white h-1 rounded-full transition-all duration-300" [style.width.%]="counter() / movieNumber() * 100" ></div>
+      <div class="bg-white h-1 rounded-full transition-all duration-300"
+        [style.width.%]="counter() / movieNumber() * 100"></div>
 
     </div>
 
