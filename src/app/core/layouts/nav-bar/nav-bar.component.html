@@ -1,20 +1,30 @@
-<nav class="bg-gradient-to-b from-[#0C1321] to-transparent fixed w-full z-[80] top-0 start-0   ">
-  <div class="container mx-auto flex flex-wrap items-center justify-between  p-4">
-    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
-      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+<nav #navbar
+  class="bg-gradient-to-b from-[#0C1321] to-transparent fixed w-full z-[80] top-0 start-0  transition-background duration-500 ease-in-out  ">
+  <div class="container mx-auto spac flex flex-wrap items-center justify-between  p-4">
+    <a class="flex items-center rtl:space-x-reverse">
+      <span class=" text-2xl font-semibold whitespace-nowrap text-main">N</span>
+      <span class=" text-2xl font-semibold whitespace-nowrap text-main">o</span>
+      <span class=" text-2xl font-semibold whitespace-nowrap text-main">t</span>
+      <span class=" text-2xl font-semibold whitespace-nowrap text-main">F</span>
+      <span class=" text-2xl font-semibold whitespace-nowrap text-white">l</span>
+      <span class=" text-2xl font-semibold whitespace-nowrap text-white">i</span>
+      <span class=" text-2xl font-semibold whitespace-nowrap text-white">x</span>
     </a>
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
-        started</button>
+    <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
+
+      <i class="pi pi-search  text-white cursor-pointer " [style]="{'font-size': '1.5rem'}"></i>
+
+      <div class="md:hidden">
+        <p-button type="button" (click)="visible1 = true" icon="pi pi-arrow-left"
+          [style]="{backgroundColor: 'transparent' , border: 'none', fontSize: '1.5rem'}" />
+      </div>
 
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
       <ul class="flex  font-medium  rounded-lg  md:space-x-8   ">
         <li>
           <a class="block py-2 px-3  bg-blue-700 rounded-sm md:bg-transparent text-white text-lg font-bold"
-            routerLink="/home" routerLinkActive="text-[#38BCF6]!" aria-current="page">Home</a>
+            routerLink="/home" routerLinkActive="text-main!" aria-current="page">Home</a>
         </li>
         <li>
           <a class="block py-2 px-3  text-white text-lg font-bold">About</a>
@@ -29,3 +39,22 @@
     </div>
   </div>
 </nav>
+
+
+<p-drawer [style]="{background: '#0C1321' , border: 'none'}"  header="Notflix" [(visible)]="visible1" position="right"
+  >
+  <ul>
+    <li class="py-2 px-3 text-white text-lg font-bold">
+      <a routerLink="/home" routerLinkActive="text-main!" aria-current="page">Home</a>
+    </li>
+    <li class="py-2 px-3 text-white text-lg font-bold">
+      <a>About</a>
+    </li>
+    <li class="py-2 px-3 text-white text-lg font-bold">
+      <a>Services</a>
+    </li>
+    <li class="py-2 px-3 text-white text-lg font-bold">
+      <a>Contact</a>
+    </li>
+  </ul>
+</p-drawer>
