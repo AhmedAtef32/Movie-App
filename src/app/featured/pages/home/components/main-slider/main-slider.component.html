@@ -1,20 +1,20 @@
 <section class="relative">
 
 
-   <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
-    <button (click)="prevBtn()" (click)="carousel.prev()" (click)="onTranslated()"
+  <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
+    <button (click)="prevBtn()" (click)="carousel.prev()"
       class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
       <i class="pi pi-angle-left" style="font-size: 35px;"></i>
     </button>
-    <button (click)="nextBtn()" (click)="carousel.next()" (click)="onTranslated()"
+    <button (click)="nextBtn()" (click)="carousel.next()"
       class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
       <i class="pi pi-angle-right" style="font-size: 35px;"></i>
     </button>
   </div>
 
-  <owl-carousel-o [options]="customOptions" #carousel >
+  <owl-carousel-o [options]="customOptions" #carousel  (changed)="onTranslated($event)">
 
-    @for (trendMovie of trendingMoive; track trendMovie.id) {
+    @for (trendMovie of trendingMoive?.slice(0,5); track trendMovie.id) {
     <ng-template carouselSlide>
       <div class="relative h-[90vh]  w-full overflow-hidden">
         <div class="relative h-full w-full">
@@ -22,45 +22,43 @@
           <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A1120]"></div>
         </div>
 
-      <div class="container px-4 mx-auto">
-          <div
-         #movieDetails
-          class="absolute  bottom-0 left-1/2 md:left-[5%]  top-[50%] md:top-[50%] transform -translate-x-1/2 md:-translate-x-0  animate__animated animate__fadeInUp ">
-          <h2
-            class="text-white text-xl font-bold text-center md:text-start md:text-4xl mb-4 ">
-            {{ trendMovie.title }}
-          </h2>
+        <div class="container px-4 mx-auto">
+          <div #movieDetails
+            class="absolute  bottom-0 left-1/2 md:left-[5%]  top-[50%] md:top-[50%] transform -translate-x-1/2 md:-translate-x-0  animate__animated animate__fadeInUp ">
+            <h2 class="text-white text-xl font-bold text-center md:text-start md:text-4xl mb-4 ">
+              {{ trendMovie.title }}
+            </h2>
 
-          <div class="mt-2 movie__overview flex items-center justify-center md:justify-start  gap-2">
-            <p class="rate text-white "><i class="pi pi-star-fill text-[yellow]"></i> {{ trendMovie.vote_average.toString()| term : 3 }} </p>
-            <p class="text-white mt-[-2px]">|</p>
-            <p class="text-white">{{ trendMovie.release_date | date: 'yyyy' }}</p>
-            <p class="text-white mt-[-2px]">|</p>
-            <p class="text-white">{{ trendMovie.original_language }}</p>
+            <div class="mt-2 movie__overview flex items-center justify-center md:justify-start  gap-2">
+              <p class="rate text-white "><i class="pi pi-star-fill text-[yellow]"></i> {{
+                trendMovie.vote_average.toString()| term : 3 }} </p>
+              <p class="text-white mt-[-2px]">|</p>
+              <p class="text-white">{{ trendMovie.release_date | date: 'yyyy' }}</p>
+              <p class="text-white mt-[-2px]">|</p>
+              <p class="text-white">{{ trendMovie.original_language }}</p>
+            </div>
+
+            <p class="text-center text-white md:w-[75%] text-lg font-bold  md:text-start mt-4">{{ trendMovie.overview |
+              term : 65}}.....</p>
+
+            <div class=" flex items-center justify-center md:justify-start mt-4 lg:hidden">
+              <button class="bg-main p-3 rounded-full cursor-pointer hover:bg-main-hover transition-all duration-200"><i
+                  class="fa-solid fa-play"></i> Watch trailer now </button>
+            </div>
+
           </div>
 
-          <p class="text-center text-white md:w-[75%] text-lg font-bold  md:text-start mt-4">{{ trendMovie.overview |
-            term : 65}}.....</p>
-
-          <div class=" flex items-center justify-center md:justify-start mt-4 lg:hidden">
+          <div class="absolute top-[50%] md:left-[60%]  transform -translate-x-1/2  hidden lg:block ">
             <button
-              class="bg-main p-3 rounded-full cursor-pointer hover:bg-main-hover transition-all duration-200"><i
-                class="fa-solid fa-play"></i> Watch trailer now </button>
+              class=" p-3 rounded-full cursor-pointer  transition-all duration-200 flex items-center justify-center gap-4 text-[24px] group text-white hover:text-main text-4xl font-bold">
+              <p
+                class="size-30  border-2 border-main rounded-full flex items-center justify-center group-hover:bg-main transition-all duration-300">
+                <i class="fa-solid fa-play text-main text-[35px] group-hover:text-black"></i>
+              </p> Watch trailer now
+              !
+            </button>
           </div>
-
         </div>
-
-        <div class="absolute top-[50%] md:left-[60%]  transform -translate-x-1/2  hidden lg:block ">
-          <button
-            class=" p-3 rounded-full cursor-pointer  transition-all duration-200 flex items-center justify-center gap-4 text-[24px] group text-white hover:text-main text-4xl font-bold">
-            <p
-              class="size-30  border-2 border-main rounded-full flex items-center justify-center group-hover:bg-main transition-all duration-300">
-              <i class="fa-solid fa-play text-main text-[35px] group-hover:text-black"></i>
-            </p> Watch trailer now
-            !
-          </button>
-        </div>
-      </div>
 
       </div>
     </ng-template>
