@@ -1,6 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
-
 import { routes } from './app.routes';
 import {
   provideClientHydration,
@@ -9,14 +8,17 @@ import {
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+import { errorInterceptor } from './core/interceptor/error/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withViewTransitions() , withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch() , withInterceptors([errorInterceptor])),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
@@ -26,5 +28,7 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+        provideAnimations(), // required animations providers
+    provideToastr(), // Toastr providers
   ],
 };

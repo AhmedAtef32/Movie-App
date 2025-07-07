@@ -50,7 +50,6 @@ export class MovieDetailsComponent implements OnInit {
   /**
    * Retrieves the details of a specific movie from the API and assigns it to `MovieDeatails`.
    * The movie ID used is hardcoded to movieID.
-   * Logs the response or error to the console upon completion.
    */
 
   getMovieDetails() {
@@ -58,22 +57,13 @@ export class MovieDetailsComponent implements OnInit {
       next: (res) => {
         this.MovieDeatails = res;
         console.log(res);
-      },
-      /**
-       * Retrieves the trailer videos for a specific movie from the API and assigns it to `MovieVideos`.
-       * The movie ID used is hardcoded to movieID.
-       * Logs the response or error to the console upon completion.
-       */
-      error: (err) => {
-        console.log(err);
-      },
+      }
     });
   }
 
   /**
    * Retrieves the trailer videos for a specific movie from the API and assigns it to `MovieVideos`.
    * The movie ID used is hardcoded to movieID.
-   * Logs the response or error to the console upon completion.
    */
   getMovieTrailer() {
     this._movieService.getMovieTrailer(this.movieID).subscribe({
@@ -81,18 +71,13 @@ export class MovieDetailsComponent implements OnInit {
         console.log(res);
         this.MovieVideos = res;
         console.log(res);
-      },
-
-      error: (err) => {
-        console.log(err);
-      },
+      }
     });
   }
 
   /**
    * Retrieves the images for a specific movie from the API and assigns them to `MovieImages`.
    * The movie ID used is hardcoded to movieID.
-   * Logs the response or error to the console.
    */
 
   getMovieImages() {
@@ -100,17 +85,13 @@ export class MovieDetailsComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.MovieImages = res;
-      },
-      error: (err) => {
-        console.log(err);
-      },
+      }
     });
   }
 
   /**
    * Retrieves the cast information for a specific movie from the API and assigns it to `MovieCast`.
    * The movie ID used is hardcoded to movieID.
-   * Logs the cast information or error to the console upon completion.
    */
 
   getMovieCast() {
@@ -130,10 +111,7 @@ export class MovieDetailsComponent implements OnInit {
       next: (res) => {
         this.MovieRecommendation = res.results;
         console.log(this.MovieRecommendation);
-      },
-      error: (err) => {
-        console.log(err);
-      },
+      }
     });
   }
 }

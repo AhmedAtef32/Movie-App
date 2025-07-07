@@ -1,4 +1,5 @@
-<section class="relative">
+@if (movieDetails && MovieImages) {
+  <section class="relative">
 
 
   <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
@@ -39,17 +40,21 @@
       </div>
 
       <div class=" movie__info ">
+
         <div class="logo" class="w-[200px] mb-5">
           <img class=" w-full object-cover" [src]=" pathImage+MovieImages.logos[0]?.file_path" alt="Movie Image">
         </div>
 
+
         <div class="movie__overview ">
           <div class="mt-2  flex items-center justify-center md:justify-start  gap-1 md:gap-3 mb-5">
+            @if (movieDetails.vote_average) {
             <p class="rate text-white  ">
               <i class="pi pi-star-fill text-[yellow]"></i>
               {{ movieDetails.vote_average.toString()| term : 3 }}
 
             </p>
+            }
             <p class="text-white mt-[-2px]">|</p>
             <p class="text-white">
               {{ movieDetails?.release_date | date: 'yyyy' }}
@@ -79,3 +84,4 @@
   </div>
 
 </section>
+}

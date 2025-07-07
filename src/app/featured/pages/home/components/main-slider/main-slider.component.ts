@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main-slider',
-  imports: [CarouselModule, DatePipe, TermPipe , RouterLink],
+  imports: [CarouselModule, DatePipe, TermPipe, RouterLink],
   templateUrl: './main-slider.component.html',
   styleUrl: './main-slider.component.css',
 })
@@ -58,6 +58,7 @@ export class MainSliderComponent implements OnInit {
     touchDrag: false,
     pullDrag: false,
     autoplay: true,
+    lazyLoad: true,
     dots: false,
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
@@ -72,24 +73,17 @@ export class MainSliderComponent implements OnInit {
     nav: false,
   };
 
-
   onTranslated(event: SlidesOutputData) {
+    this.movieDetails.forEach((ele) => {
+      ele.nativeElement.classList.remove('animate__fadeInUp');
+      ele.nativeElement.classList.add('opacity-0');
 
+      setTimeout(() => {
+        ele.nativeElement.classList.add('opacity-100');
+        ele.nativeElement.classList.add('animate__fadeInUp');
+      }, 30);
+    });
 
-
-
-      this.movieDetails.forEach((ele) => {
-        ele.nativeElement.classList.remove('animate__fadeInUp');
-        ele.nativeElement.classList.add('opacity-0');
-
-        setTimeout(() => {
-          ele.nativeElement.classList.add('opacity-100');
-          ele.nativeElement.classList.add('animate__fadeInUp');
-        }, 30);
-      });
-
-      this.counter.set(event.startPosition! + 1);
-
-
+    this.counter.set(event.startPosition! + 1);
   }
 }

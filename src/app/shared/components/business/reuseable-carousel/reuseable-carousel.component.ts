@@ -10,16 +10,16 @@ import { MovieCardComponent } from '../../ui/movie-card/movie-card.component';
   templateUrl: './reuseable-carousel.component.html',
   styleUrl: './reuseable-carousel.component.css',
 })
-export class ReuseableCarouselComponent  {
- @Input({required: true}) movies!: ItrendingMovie[];
- @Input({required: true}) imagePath!: string ;
-
+export class ReuseableCarouselComponent {
+  @Input({ required: true }) movies!: ItrendingMovie[];
+  @Input({ required: true }) imagePath!: string;
 
   customOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,
     touchDrag: true,
     stagePadding: 40,
+    lazyLoad: true,
     margin: 20,
     pullDrag: false,
     dots: false,
