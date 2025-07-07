@@ -14,17 +14,17 @@ import { CarouselModule, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { TermPipe } from '../../../../../core/pipe/term.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main-slider',
-  imports: [CarouselModule, DatePipe, TermPipe],
+  imports: [CarouselModule, DatePipe, TermPipe , RouterLink],
   templateUrl: './main-slider.component.html',
   styleUrl: './main-slider.component.css',
 })
 export class MainSliderComponent implements OnInit {
   private readonly _movieService = inject(MoivesService);
 
-  responsiveOptions: any[] | undefined;
   trendingMoive!: ItrendingMovie[];
   pathImage: string = this._movieService.PathImageUrl;
   movieNumber: WritableSignal<number> = signal(1);
@@ -44,7 +44,7 @@ export class MainSliderComponent implements OnInit {
     this._movieService.getTrendingMovies().subscribe({
       next: (res) => {
         this.trendingMoive = res.results;
-        this.movieNumber.set(5);
+        this.movieNumber.set(res.results.length);
       },
       error: (err) => {
         console.log(err);
@@ -72,25 +72,9 @@ export class MainSliderComponent implements OnInit {
     nav: false,
   };
 
-  nextBtn() {
-    if (this.counter() == this.movieNumber()) {
-      this.counter.set(1);
-    } else {
-      this.counter.update((counter) => counter + 1);
-    }
-  }
-
-  prevBtn() {
-    if (this.counter() == 1) {
-      this.counter.set(this.movieNumber());
-    } else {
-      this.counter.update((counter) => counter - 1);
-    }
-  }
 
   onTranslated(event: SlidesOutputData) {
 
-    console.log(event.startPosition);
 
 
 
@@ -105,6 +89,7 @@ export class MainSliderComponent implements OnInit {
       });
 
       this.counter.set(event.startPosition! + 1);
+
 
   }
 }

@@ -1,0 +1,45 @@
+<section class="md:mt-52 mb-6">
+
+
+  <div class="flex justify-between items-center  flex-wrap ">
+
+    <div class="movie__Details md:w-1/2">
+      <div class="Movie_Title">
+        <p class="text-[rgba(255,255,255,0.5)]">Original Title</p>
+        <h2 class="text-white text-2xl font-bold">{{movieDetails.original_title}}</h2>
+      </div>
+
+      <div class="Movie_Overview mt-5">
+        <p class="text-[rgba(255,255,255,0.5)]">Overview</p>
+        <p class="text-[rgba(255,255,255,0.5)]  font-bold mt-1">{{movieDetails.overview}}</p>
+      </div>
+
+      <div class="Movie_Overview mt-5">
+
+        <ul class="flex items-center gap-2 ">
+          @for (genre of movieDetails.genres; track $index) {
+
+          <li
+            class="bg-[#192232] text-white px-3 py-2 rounded-full cursor-pointer hover:bg-[#192232a6] transition-all duration-300">
+            {{genre.name}}</li>
+          }
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="movie__trailer w-full md:w-1/2 mt-2.5 md:mt-0">
+      <div class="movie__trailer mt-5 w-full">
+
+        <iframe  class="w-[100%] md:w-[80%] h-[315px] mx-auto" [src]="'https://www.youtube.com/embed/' + movieVideos.results[0].key | safeUrl"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+    </div>
+  </div>
+
+</section>

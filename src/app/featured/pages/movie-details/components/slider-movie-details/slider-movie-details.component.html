@@ -1,0 +1,81 @@
+<section class="relative">
+
+
+  <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
+    <button (click)="carousel.prev()"
+      class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
+      <i class="pi pi-angle-left" style="font-size: 35px;"></i>
+    </button>
+    <button (click)="carousel.next()"
+      class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
+      <i class="pi pi-angle-right" style="font-size: 35px;"></i>
+    </button>
+  </div>
+
+  <owl-carousel-o [options]="customOptions" #carousel>
+
+    @for (item of MovieImages?.backdrops?.slice(0, 5); track $index) {
+
+    <ng-template carouselSlide>
+      <div class="relative h-[80vh]  w-full overflow-hidden">
+        <div class=" h-full w-full">
+          <img [src]=" pathImage+item?.file_path" [alt]="movieDetails?.title" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A1120]"></div>
+        </div>
+      </div>
+    </ng-template>
+
+    }
+
+
+  </owl-carousel-o>
+
+  <div class="container px-4 mx-auto">
+    <div
+      class="movie__details flex items-center justify-start  absolute  bottom-0 left-1/2 md:left-[5%]  top-[50%] md:top-[80%] transform -translate-x-1/2 md:-translate-x-0 z-50 gap-8">
+
+      <div class="movie__Image hidden md:block">
+        <img class=" h-[300px] w-[200px] object-cover" [src]=" pathImage+movieDetails?.poster_path" alt="Movie Image">
+      </div>
+
+      <div class=" movie__info ">
+        <div class="logo" class="w-[200px] mb-5">
+          <img class=" w-full object-cover" [src]=" pathImage+MovieImages.logos[0]?.file_path" alt="Movie Image">
+        </div>
+
+        <div class="movie__overview ">
+          <div class="mt-2  flex items-center justify-center md:justify-start  gap-1 md:gap-3 mb-5">
+            <p class="rate text-white  ">
+              <i class="pi pi-star-fill text-[yellow]"></i>
+              {{ movieDetails.vote_average.toString()| term : 3 }}
+
+            </p>
+            <p class="text-white mt-[-2px]">|</p>
+            <p class="text-white">
+              {{ movieDetails?.release_date | date: 'yyyy' }}
+            </p>
+            <p class="text-white mt-[-2px]">|</p>
+            <p class="text-white">
+              {{ movieDetails?.runtime }} min
+            </p>
+            <p class="text-white mt-[-2px]">|</p>
+            <p class="text-white">
+              {{ movieDetails?.original_language?.toUpperCase() }}
+
+            </p>
+          </div>
+
+          <div class="movie__Icons flex items-center justify-center md:justify-start gap-2 mt-4">
+            <i class="pi pi-heart text-main me-5 cursor-pointer" [style]="'font-size:1.5rem;'"></i>
+
+            <i class="pi pi-bookmark text-main cursor-pointer" [style]="'font-size:1.5rem;'"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</section>

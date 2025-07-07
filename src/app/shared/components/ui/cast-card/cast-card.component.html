@@ -1,0 +1,9 @@
+<div class="cast-card mt-5">
+  <div class="cast-card__image  rounded-full overflow-hidden w-32 h-32 mx-auto mb-2">
+    <img class=" w-full " [src]="imagePath+cast?.profile_path " [alt]=" cast?.name " />
+  </div>
+  <div class="cast-card__details text-center text-white">
+    <h3 class="cast-card__name">{{ cast?.original_name }}</h3>
+    <p class="cast-card__character">{{ cast?.character }}</p>
+  </div>
+</div>
