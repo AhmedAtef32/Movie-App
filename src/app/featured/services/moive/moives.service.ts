@@ -100,4 +100,17 @@ export class MoivesService {
       headers: this.basicHeraders,
     });
   }
+
+
+  /**
+   * Retrieves the movie recommendations for a specific movie from the API.
+   * @param id The unique identifier of the movie.
+   * @returns An Observable containing the movie recommendations of the specified movie.
+   */
+  getMovieRecommendations(id: number): Observable<any> {
+    return this.http.get(`${enviro.baseurl}/movie/${id}/recommendations`, {
+      headers: this.basicHeraders,
+    });
+  }
+
 }
