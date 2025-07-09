@@ -3,9 +3,11 @@
 @import "primeicons/primeicons.css";
 @import 'animate.css';
 @theme {
+
   --color-main: #38BDF8;
   --color-main-hover: #38bff8d1;
 }
+
 
 body {
   background-color: #0A1120;

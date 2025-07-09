@@ -1,0 +1,35 @@
+<section class="top__ten mt-7 ">
+
+  <div class="container mx-auto px-4 mb-4 ">
+    <div class="flex items-center justify-center md:justify-between flex-wrap">
+      <div class="flex items-center gap-6 flex-wrap justify-center">
+        <h2 class="text-9xl font-bold movie__number text-transparent text-outline flex items-center pb-4  ">
+          <span class="latter__shadow ">T</span>
+          <span class="latter__shadow ">o</span>
+          <span class="latter__shadow ">p</span>
+          <span class="latter__shadow "></span>
+          <span class="latter__shadow ">1</span>
+          <span class="latter__shadow ">0</span>
+        </h2>
+        <p class="text-3xl font-medium text-[rgba(255,255,255,0.5)] mb-4 md:mb-0"> {{TopTenWord}} <br> Today</p>
+      </div>
+
+      <div class="relative">
+        <i
+          class="pi pi-angle-down text-[rgba(255,255,255,0.5)] absolute top-[50%] transform translate-y-[-50%] right-1"></i>
+        <select (change)="changeSearch($event)"
+          class="bg-[#192232] appearance-none text-white px-2 pe-6 py-2 rounded-md border border-main ">
+          <option value="Movie"> Movie </option>
+          <option value="Series"> Series </option>
+        </select>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  <app-top-ten-slider  [MoviesOrSeries]="topTenMovieOrSeries" [imagePath]="imagePath"></app-top-ten-slider>
+
+</section>

@@ -56,7 +56,6 @@ export class MovieDetailsComponent implements OnInit {
     this._movieService.getMovieDetails(this.movieID).subscribe({
       next: (res) => {
         this.MovieDeatails = res;
-        console.log(res);
       }
     });
   }
@@ -68,9 +67,7 @@ export class MovieDetailsComponent implements OnInit {
   getMovieTrailer() {
     this._movieService.getMovieTrailer(this.movieID).subscribe({
       next: (res) => {
-        console.log(res);
         this.MovieVideos = res;
-        console.log(res);
       }
     });
   }
@@ -83,8 +80,9 @@ export class MovieDetailsComponent implements OnInit {
   getMovieImages() {
     this._movieService.getMovieImages(this.movieID).subscribe({
       next: (res) => {
-        console.log(res);
         this.MovieImages = res;
+        console.log(this.MovieImages);
+        
       }
     });
   }
@@ -98,19 +96,18 @@ export class MovieDetailsComponent implements OnInit {
     this._movieService.getCastMovie(this.movieID).subscribe({
       next: (res) => {
         this.MovieCast = res.cast;
-        console.log(this.MovieCast);
-      },
-      error: (err) => {
-        console.log(err);
-      },
+      }
     });
   }
 
+  /**
+   * Retrieves the movie recommendations for a specific movie from the API and assigns them to `MovieRecommendation`.
+   * The movie ID used is hardcoded to movieID.
+   */
   getMovieRecommendations() {
     this._movieService.getMovieRecommendations(this.movieID).subscribe({
       next: (res) => {
         this.MovieRecommendation = res.results;
-        console.log(this.MovieRecommendation);
       }
     });
   }

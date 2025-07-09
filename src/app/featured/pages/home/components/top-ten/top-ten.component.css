@@ -1,0 +1,8 @@
+.movie__number{
+  -webkit-text-stroke: 2px var(--color-main);
+}
+
+.latter__shadow {
+  mask-image: linear-gradient(to right, black 36%, transparent 100%);;
+}
+

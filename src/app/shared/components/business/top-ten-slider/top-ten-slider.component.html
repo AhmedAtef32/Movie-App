@@ -1,0 +1,22 @@
+<div class="relative Slider mb-3">
+  <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
+    <button (click)="carousel.prev()"
+      class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
+      <i class="pi pi-angle-left" style="font-size: 35px;"></i>
+    </button>
+    <button (click)="carousel.next()"
+      class="p-2  text-[rgba(255,255,255,0.5)] cursor-pointer hover:text-white rounded-full">
+      <i class="pi pi-angle-right" style="font-size: 35px;"></i>
+    </button>
+  </div>
+
+  <owl-carousel-o #carousel [options]="customOptions">
+
+    @for (movie of MoviesOrSeries()?.slice(0, 10); track $index) {
+    <ng-template carouselSlide>
+      <app-card-top-ten [index]="$index" [movie]="movie" [imagePath]="imagePath"></app-card-top-ten>
+    </ng-template>
+    }
+
+  </owl-carousel-o>
+</div>
