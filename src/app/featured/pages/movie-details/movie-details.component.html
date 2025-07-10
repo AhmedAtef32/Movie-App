@@ -4,8 +4,8 @@
 
   <div class="container mx-auto px-4 ">
     <app-movie-trailer [movieDetails]="MovieDeatails" [movieVideos]="MovieVideos" [MovieImages]="MovieImages"></app-movie-trailer>
-    <app-movie-cast [MovieCast]="MovieCast"></app-movie-cast>
-    <app-movie-recommendations [recommendationMovie]="MovieRecommendation"></app-movie-recommendations>
+    <app-movie-cast [type]="'Movie'" [MovieCast]="MovieCast"></app-movie-cast>
+    <app-movie-recommendations [type]="'Movie'" [recommendationMovie]="MovieRecommendation"></app-movie-recommendations>
   </div>
 </section>
 

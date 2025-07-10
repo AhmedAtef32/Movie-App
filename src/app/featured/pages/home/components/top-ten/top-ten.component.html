@@ -11,7 +11,7 @@
           <span class="latter__shadow ">1</span>
           <span class="latter__shadow ">0</span>
         </h2>
-        <p class="text-3xl font-medium text-[rgba(255,255,255,0.5)] mb-4 md:mb-0"> {{TopTenWord}} <br> Today</p>
+        <p class="text-3xl font-medium text-[rgba(255,255,255,0.5)] mb-4 md:mb-0"> {{topTenWord}} <br> Today</p>
       </div>
 
       <div class="relative">
@@ -30,6 +30,6 @@
 
   </div>
 
-  <app-top-ten-slider  [MoviesOrSeries]="topTenMovieOrSeries" [imagePath]="imagePath"></app-top-ten-slider>
+  <app-top-ten-slider [topTenWord]="topTenWord"  [MoviesOrSeries]="topTenMovieOrSeries" [imagePath]="imagePath"></app-top-ten-slider>
 
 </section>

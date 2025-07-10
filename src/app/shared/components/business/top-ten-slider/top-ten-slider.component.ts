@@ -12,6 +12,7 @@ import { IMovie } from '../../../interfaces/movie';
 export class TopTenSliderComponent {
 
   MoviesOrSeries:InputSignal<IMovie[]> = input.required()
+  topTenWord:InputSignal<string> = input.required()
   @Input({ required: true }) imagePath!: string
 
   customOptions: OwlOptions = {

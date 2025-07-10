@@ -14,5 +14,9 @@ export class CardTopTenComponent {
   index: InputSignal<number> = input.required( )  ;
   movie:InputSignal<IMovie> = input.required( ) ;
   imagePath:InputSignal<string> = input.required( ) ;
+  topTenWord:InputSignal<string> = input.required( ) ;
 
+  test(){
+    console.log(this.topTenWord());
+  }
 }

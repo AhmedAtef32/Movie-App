@@ -1,0 +1,12 @@
+<section>
+
+  <app-slider-movie-details [movieDetails]="seriesDeatails" [movieVideos]="seriesVideos"
+    [MovieImages]="seriesImages"></app-slider-movie-details>
+
+  <div class="container mx-auto px-4 ">
+    <app-movie-trailer [movieDetails]="seriesDeatails" [movieVideos]="seriesVideos"
+      [MovieImages]="seriesImages"></app-movie-trailer>
+    <app-movie-cast [type]="'Series'" [MovieCast]="seriesCast"></app-movie-cast>
+    <app-movie-recommendations [type]="'Series'" [recommendationMovie]="seriesRecommendation"></app-movie-recommendations>
+  </div>
+</section>

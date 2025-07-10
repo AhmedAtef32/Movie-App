@@ -14,7 +14,7 @@
 
     @for (movie of MoviesOrSeries()?.slice(0, 10); track $index) {
     <ng-template carouselSlide>
-      <app-card-top-ten [index]="$index" [movie]="movie" [imagePath]="imagePath"></app-card-top-ten>
+      <app-card-top-ten [topTenWord]="topTenWord()" [index]="$index" [movie]="movie" [imagePath]="imagePath"></app-card-top-ten>
     </ng-template>
     }
 

@@ -13,6 +13,8 @@ import { CastCardComponent } from "../../../../../shared/components/ui/cast-card
 export class MovieCastComponent {
 
   @Input({required: true}) MovieCast!: ICast[]
+  @Input({required: true}) type!: string
+
 
 customOptions: OwlOptions = {
     loop: false,
