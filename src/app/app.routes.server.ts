@@ -4,7 +4,12 @@ export const serverRoutes: ServerRoute[] = [
 {
   path: 'movieDetails/:id',
   renderMode: RenderMode.Server
+},
+{
+  path: 'seriesDetails/:id',
+  renderMode: RenderMode.Server
 }
+
   ,
   {
     path: '**',
