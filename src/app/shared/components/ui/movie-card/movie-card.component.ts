@@ -13,5 +13,6 @@ export class MovieCardComponent {
 
   @Input({required: true}) moive!:ItrendingMovie;
   @Input({required: true}) imagePath!:string;
+  @Input({required: true}) type!:string;
 
 }

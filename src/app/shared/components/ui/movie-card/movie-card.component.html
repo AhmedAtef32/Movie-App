@@ -1,4 +1,4 @@
-<div [routerLink]="['/movieDetails', moive.id]"
+<div [routerLink]="[ type ==='Movie'? '/movieDetails':'/seriesDetails', moive.id]"
   class="relative rounded-xl overflow-hidden group cursor-pointer border-2 bodrer-transparent hover: hover:border-main   transition-all duration-300">
   <div class="w-full   ">
     <img [src]="imagePath + moive.poster_path" [alt]="moive.title" class="w-full h-full   ">

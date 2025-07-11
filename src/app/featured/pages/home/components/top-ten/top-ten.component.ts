@@ -16,8 +16,8 @@ export class TopTenComponent implements OnInit {
   private readonly _movieService = inject(MoivesService);
   private readonly _topTenService = inject(TopTenService);
   imagePath: string = this._movieService.PathImageUrl;
-  topTenMovieOrSeries!: IMovie[];
-  topTenWord: string = 'Movies';
+  topTenMovieOrSeries!: IMovie[] | undefined;
+  topTenWord: string = 'Movie';
   ngOnInit(): void {
     this.getTopTen();
   }
@@ -40,6 +40,7 @@ export class TopTenComponent implements OnInit {
   changeSearch(event: Event) {
     let ele = event.target as HTMLSelectElement;
     this.topTenWord = ele.value;
+    console.log(this.topTenWord);
     this.getTopTen(ele.value);
   }
 }

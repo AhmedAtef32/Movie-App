@@ -13,6 +13,7 @@ import { MovieCardComponent } from '../../ui/movie-card/movie-card.component';
 export class ReuseableCarouselComponent {
   @Input({ required: true }) movies!: ItrendingMovie[];
   @Input({ required: true }) imagePath!: string;
+  @Input({ required: true }) type!: string;
 
   customOptions: OwlOptions = {
     loop: false,
