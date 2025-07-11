@@ -15,10 +15,11 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { TermPipe } from '../../../../../core/pipe/term.pipe';
 import { RouterLink } from '@angular/router';
+import { SkeletonMainSliderComponent } from "../../../../../shared/components/ui/skeleton-main-slider/skeleton-main-slider.component";
 
 @Component({
   selector: 'app-main-slider',
-  imports: [CarouselModule, DatePipe, TermPipe, RouterLink],
+  imports: [CarouselModule, DatePipe, TermPipe, RouterLink, SkeletonMainSliderComponent],
   templateUrl: './main-slider.component.html',
   styleUrl: './main-slider.component.css',
 })

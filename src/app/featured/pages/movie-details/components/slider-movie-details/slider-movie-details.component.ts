@@ -7,10 +7,11 @@ import { IMovieVideos } from '../../../../interfaces/Imovie-videos';
 import { IMovieImages } from '../../../../interfaces/Imovie-images';
 import { TermPipe } from '../../../../../core/pipe/term.pipe';
 import { DatePipe } from '@angular/common';
+import { SkeletonMainSliderComponent } from "../../../../../shared/components/ui/skeleton-main-slider/skeleton-main-slider.component";
 
 @Component({
   selector: 'app-slider-movie-details',
-  imports: [CarouselModule, TermPipe, DatePipe],
+  imports: [CarouselModule, TermPipe, DatePipe, SkeletonMainSliderComponent],
   templateUrl: './slider-movie-details.component.html',
   styleUrl: './slider-movie-details.component.css',
 })

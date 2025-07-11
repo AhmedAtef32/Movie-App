@@ -2,10 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ReuseableCarouselComponent } from '../../../../../shared/components/business/reuseable-carousel/reuseable-carousel.component';
 import { MoivesService } from '../../../../services/moive/moives.service';
 import { ItrendingMovie } from '../../../../interfaces/itrending-movie';
+import { SkeletonAllSlidersComponent } from "../../../../../shared/components/ui/skeleton-all-sliders/skeleton-all-sliders.component";
 
 @Component({
   selector: 'app-trending-this-week',
-  imports: [ReuseableCarouselComponent],
+  imports: [ReuseableCarouselComponent, SkeletonAllSlidersComponent],
   templateUrl: './trending-this-week.component.html',
   styleUrl: './trending-this-week.component.css',
 })

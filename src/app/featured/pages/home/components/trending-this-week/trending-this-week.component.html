@@ -1,4 +1,9 @@
 <section class="my-6">
   <h2 class="text-2xl font-bold text-white container mx-auto px-4">Trending This Week</h2>
-  <app-reuseable-carousel [movies]="trendingMovieThisWeek" [imagePath]="imagePath" ></app-reuseable-carousel>
+  @if (trendingMovieThisWeek) {
+
+    <app-reuseable-carousel [movies]="trendingMovieThisWeek" [imagePath]="imagePath" ></app-reuseable-carousel>
+  }@else {
+    <app-skeleton-all-sliders></app-skeleton-all-sliders>
+  }
 </section>

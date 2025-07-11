@@ -3,10 +3,11 @@ import { ICast } from '../../../../interfaces/Icast';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CastCardComponent } from "../../../../../shared/components/ui/cast-card/cast-card.component";
+import { SkeletonCastComponent } from "../../../../../shared/components/ui/skeleton-cast/skeleton-cast.component";
 
 @Component({
   selector: 'app-movie-cast',
-  imports: [CarouselModule, CastCardComponent],
+  imports: [CarouselModule, CastCardComponent, SkeletonCastComponent],
   templateUrl: './movie-cast.component.html',
   styleUrl: './movie-cast.component.css'
 })

@@ -2,7 +2,8 @@
 
   <h2 class="text-2xl font-bold mb-4 text-white"> {{type}} Cast</h2>
 
-  <div class="relative my-4">
+  @if (MovieCast) {
+ <div class="relative my-4">
 
     <div class=" slider__controls absolute top-1/2 left-0 right-0 flex justify-between z-40">
       <button (click)="carousel.prev()"
@@ -27,6 +28,10 @@
     </owl-carousel-o>
 
   </div>
+  } @else {
+    <app-skeleton-cast></app-skeleton-cast>
+  }
+
 
 
 </section>

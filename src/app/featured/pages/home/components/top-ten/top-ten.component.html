@@ -30,6 +30,10 @@
 
   </div>
 
-  <app-top-ten-slider [topTenWord]="topTenWord"  [MoviesOrSeries]="topTenMovieOrSeries" [imagePath]="imagePath"></app-top-ten-slider>
+  @if (topTenMovieOrSeries) {
+    <app-top-ten-slider [topTenWord]="topTenWord"  [MoviesOrSeries]="topTenMovieOrSeries" [imagePath]="imagePath"></app-top-ten-slider>
+  }@else {
+    <app-skeleton-all-sliders></app-skeleton-all-sliders>
+  }
 
 </section>

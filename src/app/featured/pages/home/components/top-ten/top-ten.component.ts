@@ -5,9 +5,10 @@ import { MoivesService } from '../../../../services/moive/moives.service';
 import { TopTenService } from '../../../../../shared/services/topTen/top-ten.service';
 import { IMovie } from '../../../../../shared/interfaces/movie';
 import { TopTenSliderComponent } from '../../../../../shared/components/business/top-ten-slider/top-ten-slider.component';
+import { SkeletonAllSlidersComponent } from "../../../../../shared/components/ui/skeleton-all-sliders/skeleton-all-sliders.component";
 @Component({
   selector: 'app-top-ten',
-  imports: [CardTopTenComponent, TopTenSliderComponent],
+  imports: [CardTopTenComponent, TopTenSliderComponent, SkeletonAllSlidersComponent],
   templateUrl: './top-ten.component.html',
   styleUrl: './top-ten.component.css',
 })
