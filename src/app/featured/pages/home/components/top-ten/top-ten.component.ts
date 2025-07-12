@@ -32,12 +32,12 @@ export class TopTenComponent implements OnInit {
     this._topTenService.getTop(search).subscribe({
       next: (res) => {
         this.topTenMovieOrSeries = res.results;
-        console.log(this.topTenMovieOrSeries);
       },
     });
   }
 
   changeSearch(event: Event) {
+    this.topTenMovieOrSeries = undefined;
     let ele = event.target as HTMLSelectElement;
     this.topTenWord = ele.value;
     console.log(this.topTenWord);
