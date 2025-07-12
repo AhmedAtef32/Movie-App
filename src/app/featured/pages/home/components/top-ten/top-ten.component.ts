@@ -15,7 +15,7 @@ import { SkeletonAllSlidersComponent } from "../../../../../shared/components/ui
 export class TopTenComponent implements OnInit {
   private readonly _movieService = inject(MoivesService);
   private readonly _topTenService = inject(TopTenService);
-  imagePath: string = this._movieService.PathImageUrl;
+  imagePath: string = this._movieService.PathImageUrlWithLowQuality;
   topTenMovieOrSeries!: IMovie[] | undefined;
   topTenWord: string = 'Movie';
   ngOnInit(): void {
@@ -36,6 +36,11 @@ export class TopTenComponent implements OnInit {
     });
   }
 
+  /**
+   * Updates the search type based on the user's selection from a dropdown.
+   * Clears the current top ten list and fetches a new list based on the selected type.
+   * @param event {Event} - The change event triggered by the dropdown selection.
+   */
   changeSearch(event: Event) {
     this.topTenMovieOrSeries = undefined;
     let ele = event.target as HTMLSelectElement;

@@ -13,7 +13,7 @@ import { SkeletonAllSlidersComponent } from "../../../../../shared/components/ui
 export class TrendingThisWeekComponent implements OnInit {
   private readonly _movieService = inject(MoivesService);
   trendingMovieThisWeek!: ItrendingMovie[];
-  imagePath: string = this._movieService.PathImageUrl;
+  imagePath: string = this._movieService.PathImageUrlWithLowQuality;
   ngOnInit(): void {
     this.getTrendingMoviesThisWeek();
   }

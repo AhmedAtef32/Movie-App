@@ -10,6 +10,6 @@ import { MoivesService } from '../../../../featured/services/moive/moives.servic
 })
 export class CastCardComponent {
   private readonly _movieService = inject(MoivesService);
-   imagePath:string = this._movieService.PathImageUrl;
+   imagePath:string = this._movieService.PathImageUrlWithLowQuality;
   @Input({ required: true }) cast!: ICast;
 }

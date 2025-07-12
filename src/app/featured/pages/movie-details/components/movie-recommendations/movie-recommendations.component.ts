@@ -13,7 +13,7 @@ import { SkeletonAllSlidersComponent } from "../../../../../shared/components/ui
 export class MovieRecommendationsComponent {
   private readonly _movieService = inject(MoivesService);
 
-  pathImage: string = this._movieService.PathImageUrl;
+  pathImage: string = this._movieService.PathImageUrlWithLowQuality;
   @Input({ required: true }) recommendationMovie!: ItrendingMovie[];
   @Input({ required: true }) type!: string;
 }

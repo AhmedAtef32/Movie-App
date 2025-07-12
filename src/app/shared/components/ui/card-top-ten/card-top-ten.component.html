@@ -9,7 +9,7 @@
   <div
     class="relative rounded-xl overflow-hidden group cursor-pointer border-2 bodrer-transparent hover: hover:border-main   transition-all duration-300">
     <div class="w-full">
-      <img [src]=" imagePath() + movie()?.backdrop_path" alt="moive.title"
+      <img loading="lazy" [src]=" imagePath() + movie()?.backdrop_path" alt="moive.title"
         class=" w-full h-[350px] md:h-[300px] object-cover ">
     </div>
     <div

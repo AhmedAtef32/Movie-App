@@ -15,7 +15,8 @@ export class MoivesService {
 
   trendingMoive$: Observable<ItrendingMovie[]> | undefined;
   trendingMovieThisWeek$: Observable<ItrendingMovie[]> | undefined;
-  PathImageUrl: string = 'https://image.tmdb.org/t/p/original';
+  PathImageUrl: string = 'https://image.tmdb.org/t/p/w1280';
+  PathImageUrlWithLowQuality: string = 'https://image.tmdb.org/t/p/w500';
 
   /**
    * This function will get the trending movies of the day from the API, the data will be cached
