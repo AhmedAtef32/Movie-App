@@ -1,19 +1,18 @@
 import { Component, input, Input, InputSignal } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { CardTopTenComponent } from "../../ui/card-top-ten/card-top-ten.component";
+import { CardTopTenComponent } from '../../ui/card-top-ten/card-top-ten.component';
 import { IMovie } from '../../../interfaces/movie';
 @Component({
   selector: 'app-top-ten-slider',
   imports: [CarouselModule, CardTopTenComponent],
   templateUrl: './top-ten-slider.component.html',
-  styleUrl: './top-ten-slider.component.css'
+  styleUrl: './top-ten-slider.component.css',
 })
 export class TopTenSliderComponent {
-
-  MoviesOrSeries:InputSignal<IMovie[]> = input.required()
-  topTenWord:InputSignal<string> = input.required()
-  @Input({ required: true }) imagePath!: string
+  MoviesOrSeries: InputSignal<IMovie[]> = input.required();
+  topTenWord: InputSignal<string> = input.required();
+  @Input({ required: true }) imagePath!: string;
 
   customOptions: OwlOptions = {
     loop: false,
@@ -21,6 +20,7 @@ export class TopTenSliderComponent {
     touchDrag: true,
     stagePadding: 40,
     lazyLoad: true,
+    autoHeight: false,
     margin: 20,
     pullDrag: false,
     dots: false,

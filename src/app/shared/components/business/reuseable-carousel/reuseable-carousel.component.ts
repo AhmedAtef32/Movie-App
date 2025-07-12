@@ -22,6 +22,7 @@ export class ReuseableCarouselComponent {
     stagePadding: 40,
     lazyLoad: true,
     margin: 20,
+    autoHeight: false,
     pullDrag: false,
     dots: false,
     navSpeed: 700,
