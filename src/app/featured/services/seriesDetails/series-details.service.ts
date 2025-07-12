@@ -12,11 +12,7 @@ export class SeriesDetailsService {
   constructor(private http: HttpClient) { }
 
 
-     basicHeraders:HttpHeaders = new HttpHeaders({
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZGUwMmI5NWQ0MTAyYWZkZDI3ZTA1ZmRhMzAxNjVkMyIsIm5iZiI6MTczNzM4MzQ1OC42ODUsInN1YiI6IjY3OGU1ZTIyMWMzNDFjODg5OTZkZTk2YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ksjZpCaW7QAU2-ruF1UumvqQdq300x1J1SVo6isTYGA',
-    accept: 'application/json',
-  });
+
 
    /**
      * This function retrieves the details of a specific Tv from the API.
@@ -24,9 +20,7 @@ export class SeriesDetailsService {
      * @returns An Observable containing the details of the specified Tv.
      */
     getTvDetails(id: number): Observable<any> {
-      return this.http.get(`${enviro.baseurl}/tv/${id}?language=en-US`, {
-        headers: this.basicHeraders,
-      });
+      return this.http.get(`${enviro.baseurl}/tv/${id}?language=en-US`);
     }
 
 
@@ -37,9 +31,7 @@ export class SeriesDetailsService {
    */
     getTvTrailer(id: number): Observable<any> {
       return this.http.get(
-        `${enviro.baseurl}/tv/${id}/videos?language=en-US`,
-        { headers: this.basicHeraders }
-      );
+        `${enviro.baseurl}/tv/${id}/videos?language=en-US`);
     }
 
     /**
@@ -48,9 +40,7 @@ export class SeriesDetailsService {
      * @returns Observable of the Tv images
      */
     getTvImages(id: number): Observable<any> {
-      return this.http.get(`${enviro.baseurl}/tv/${id}/images?include_image_language=en`, {
-        headers: this.basicHeraders,
-      });
+      return this.http.get(`${enviro.baseurl}/tv/${id}/images?include_image_language=en`);
     }
 
 
@@ -60,9 +50,7 @@ export class SeriesDetailsService {
      * @returns An Observable containing the cast information of the specified Tv.
      */
     getCastTv(id: number): Observable<any> {
-      return this.http.get(`${enviro.baseurl}/tv/${id}/credits?language=en-US`, {
-        headers: this.basicHeraders,
-      });
+      return this.http.get(`${enviro.baseurl}/tv/${id}/credits?language=en-US`);
     }
 
 
@@ -72,8 +60,6 @@ export class SeriesDetailsService {
      * @returns An Observable containing the Tv recommendations of the specified Tv.
      */
     getTvRecommendations(id: number): Observable<any> {
-      return this.http.get(`${enviro.baseurl}/tv/${id}/recommendations?language=en-US`, {
-        headers: this.basicHeraders,
-      });
+      return this.http.get(`${enviro.baseurl}/tv/${id}/recommendations?language=en-US`);
     }
 }

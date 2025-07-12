@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
 import {
@@ -12,11 +12,6 @@ import { enviro } from '../../../core/environments/enviro';
 })
 export class MoivesService {
   constructor(private http: HttpClient) {}
-  basicHeraders:HttpHeaders = new HttpHeaders({
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZGUwMmI5NWQ0MTAyYWZkZDI3ZTA1ZmRhMzAxNjVkMyIsIm5iZiI6MTczNzM4MzQ1OC42ODUsInN1YiI6IjY3OGU1ZTIyMWMzNDFjODg5OTZkZTk2YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ksjZpCaW7QAU2-ruF1UumvqQdq300x1J1SVo6isTYGA',
-    accept: 'application/json',
-  });
 
   trendingMoive$: Observable<ItrendingMovie[]> | undefined;
   trendingMovieThisWeek$: Observable<ItrendingMovie[]> | undefined;
@@ -30,8 +25,7 @@ export class MoivesService {
     if (!this.trendingMoive$) {
       this.trendingMoive$ = this.http
         .get<ItrendingMovie[]>(
-          `${enviro.baseurl}/trending/movie/day?language=en-US`,
-          { headers: this.basicHeraders }
+          `${enviro.baseurl}/trending/movie/day?language=en-US`
         )
         .pipe(shareReplay(1));
     }
@@ -46,8 +40,7 @@ export class MoivesService {
     if (!this.trendingMovieThisWeek$) {
       this.trendingMovieThisWeek$ = this.http
         .get<ItrendingMovie[]>(
-          `${enviro.baseurl}/trending/movie/week?language=en-US`,
-          { headers: this.basicHeraders }
+          `${enviro.baseurl}/trending/movie/week?language=en-US`
         )
         .pipe(shareReplay(1));
     }
@@ -60,9 +53,7 @@ export class MoivesService {
    * @returns An Observable containing the details of the specified movie.
    */
   getMovieDetails(id: number): Observable<any> {
-    return this.http.get(`${enviro.baseurl}/movie/${id}?language=en-US`, {
-      headers: this.basicHeraders,
-    });
+    return this.http.get(`${enviro.baseurl}/movie/${id}?language=en-US`);
   }
 
 
@@ -73,9 +64,7 @@ export class MoivesService {
  */
   getMovieTrailer(id: number): Observable<any> {
     return this.http.get(
-      `${enviro.baseurl}/movie/${id}/videos?language=en-US`,
-      { headers: this.basicHeraders }
-    );
+      `${enviro.baseurl}/movie/${id}/videos?language=en-US`);
   }
 
   /**
@@ -84,9 +73,7 @@ export class MoivesService {
    * @returns Observable of the movie images
    */
   getMovieImages(id: number): Observable<any> {
-    return this.http.get(`${enviro.baseurl}/movie/${id}/images?include_image_language=en`, {
-      headers: this.basicHeraders,
-    });
+    return this.http.get(`${enviro.baseurl}/movie/${id}/images?include_image_language=en`);
   }
 
 
@@ -96,9 +83,7 @@ export class MoivesService {
    * @returns An Observable containing the cast information of the specified movie.
    */
   getCastMovie(id: number): Observable<any> {
-    return this.http.get(`${enviro.baseurl}/movie/${id}/credits?language=en-US`, {
-      headers: this.basicHeraders,
-    });
+    return this.http.get(`${enviro.baseurl}/movie/${id}/credits?language=en-US`);
   }
 
 
@@ -108,9 +93,7 @@ export class MoivesService {
    * @returns An Observable containing the movie recommendations of the specified movie.
    */
   getMovieRecommendations(id: number): Observable<any> {
-    return this.http.get(`${enviro.baseurl}/movie/${id}/recommendations?language=en-US`, {
-      headers: this.basicHeraders,
-    });
+    return this.http.get(`${enviro.baseurl}/movie/${id}/recommendations?language=en-US`);
   }
 
 }
