@@ -6,7 +6,7 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () =>
       import('./featured/pages/home/home.component').then(
-        (m) => m.HomeComponent
+        (c) => c.HomeComponent
       ),
     title: 'Home',
   },
@@ -14,7 +14,7 @@ export const routes: Routes = [
     path: 'movieDetails/:id',
     loadComponent: () =>
       import('./featured/pages/movie-details/movie-details.component').then(
-        (m) => m.MovieDetailsComponent
+        (c) => c.MovieDetailsComponent
       ),
     title: 'Movie Details',
   },
@@ -22,7 +22,7 @@ export const routes: Routes = [
     path: 'seriesDetails/:id',
     loadComponent: () =>
       import('./featured/pages/series-details/series-details.component').then(
-        (m) => m.SeriesDetailsComponent
+        (c) => c.SeriesDetailsComponent
       ),
     title: 'Series Details',
   },

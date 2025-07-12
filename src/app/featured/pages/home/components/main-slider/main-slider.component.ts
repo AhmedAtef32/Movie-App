@@ -37,6 +37,8 @@ export class MainSliderComponent implements OnInit {
   movieNumber: WritableSignal<number> = signal(1);
   counter: WritableSignal<number> = signal(1);
   @ViewChildren('movieDetails') movieDetails!: ElementRef<HTMLElement>[];
+    carouselLoaded: boolean = false;
+
 
   ngOnInit() {
     this.getTrendingMovies();
@@ -93,4 +95,10 @@ export class MainSliderComponent implements OnInit {
 
     this.counter.set(event.startPosition! + 1);
   }
+
+
+
+onCarouselReady() {
+  this.carouselLoaded = true;
+}
 }
