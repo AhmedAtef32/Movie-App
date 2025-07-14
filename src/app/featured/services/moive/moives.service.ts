@@ -15,6 +15,7 @@ export class MoivesService {
 
   trendingMoive$: Observable<ItrendingMovie[]> | undefined;
   trendingMovieThisWeek$: Observable<ItrendingMovie[]> | undefined;
+  actionMovie$: Observable<ItrendingMovie[]> | undefined;
   PathImageUrl: string = 'https://image.tmdb.org/t/p/w1280';
   PathImageUrlWithLowQuality: string = 'https://image.tmdb.org/t/p/w500';
 
@@ -46,6 +47,23 @@ export class MoivesService {
         .pipe(shareReplay(1));
     }
     return this.trendingMovieThisWeek$;
+  }
+
+  /**
+   * Retrieves the action movies from the API, the data will be cached
+   * so that it will not be requested again if called multiple times.
+   * @returns An Observable containing the action movies.
+   */
+    getActionMovie(): Observable<any> {
+    if (!this.actionMovie$) {
+      this.actionMovie$ = this.http
+        .get<ItrendingMovie[]>(
+          `${enviro.baseurl}/discover/movie?with_genres=28&language=en-US&page=1`
+
+        )
+        .pipe(shareReplay(1));
+    }
+    return this.actionMovie$;
   }
 
   /**

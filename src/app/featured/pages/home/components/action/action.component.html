@@ -1,0 +1,9 @@
+<section class="py-6 mt-6">
+  <h2 class="text-4xl font-bold text-white container mx-auto px-4">Action Movies</h2>
+  @if (actionMovies) {
+
+    <app-reuseable-carousel [type]="'Movie'" [movies]="actionMovies" [imagePath]="imagePath" ></app-reuseable-carousel>
+  }@else {
+    <app-skeleton-all-sliders></app-skeleton-all-sliders>
+  }
+</section>
