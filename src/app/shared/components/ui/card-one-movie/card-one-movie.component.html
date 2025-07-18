@@ -1,0 +1,18 @@
+<div class="h-[80vh] bg-no-repeat bg-center bg-cover relative bg-fixed"
+  [style.backgroundImage]="'url('+imagePath()+movieOrSeries()?.backdrop_path+')'">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A1120]"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A1120]"></div>
+  <div class="absolute top-1/2  transform -translate-y-1/2 w-full pe-5">
+    <h2 class="text-[24px] md:text-[48px] text-white font-bold text-center md:text-end "> {{movieOrSeries()?.title}}
+    </h2>
+    <p class="my-4 text-white font-normal text-center md:text-end md:w-1/2 ms-auto"> {{movieOrSeries()?.overview}} </p>
+    <div class=" flex items-center justify-center md:justify-end mt-4 ">
+      <button
+        [routerLink]="[isThisMovie() ? '/movieDetails' : '/seriesDetails', movieOrSeries()?.id]"
+        class=" bg-transparent text-main border border-main px-5 py-7 rounded-full cursor-pointer hover:bg-main
+        hover:text-black transition-all duration-200"><i class="fa-solid fa-play me-3.5"></i> Watch trailer now
+      </button>
+    </div>
+  </div>
+
+</div>
