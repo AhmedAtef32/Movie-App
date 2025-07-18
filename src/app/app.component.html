@@ -1,4 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <main>
   <router-outlet></router-outlet>
+
+  <div class="fixed bottom-5 right-5 z-[10000]">
+      <p-scrolltop   target="window" [threshold]="100" icon="pi pi-arrow-up"
+    [buttonProps]="{severity: 'contrast', raised: true, rounded: true }">
+  </p-scrolltop>
+  </div>
+
 </main>
+<app-footer></app-footer>
