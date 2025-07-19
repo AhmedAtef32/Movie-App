@@ -1,0 +1,10 @@
+<section>
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      @for (movie of movieOrSeries; track $index) {
+      <app-movie-card [imagePath]="imagePath" [type]="type == 'movie' ? 'Movie':'Series'"
+        [moive]="movie"></app-movie-card>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<section>
+  <div class="container mx-auto px-4">
+    <h1 class="text-[30px] font-medium text-center text-white">Watch Movies and TV Series organized by category.</h1>
+    <p class="text-[20px] font-medium text-center text-[#c8cbd0] mt-5">Find a variety of genres like Thriller, Romcom,
+      Mystery, Action, kdrama and more on Wooflix, from classics to the
+      latest news. Browse our categories and find the next great story that will capture your imagination.
+
+    </p>
+
+    <div class="flex justify-center items-center mt-6">
+
+    <div class="relative  justify-center my-6 inline-block">
+      <i
+        class="pi pi-angle-down text-[rgba(255,255,255,0.5)] absolute top-[50%] transform translate-y-[-50%] right-1 z-40"></i>
+      <select (change)="changeSearch($event)"
+        class="bg-[#192232] appearance-none text-white px-2  py-2 pe-8 rounded-md border border-main relative ">
+
+        <option value="movie"> Movie </option>
+        <option value="tv"> Series </option>
+      </select>
+    </div>
+    </div>
+
+    <ul class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-7 gap-4 mt-12  ">
+      @if (geners) {
+      @for (gen of geners; track $index) {
+      <li [routerLink]="['/gen/', gen.name ,search, gen.id ]"
+        class="text-center p-2 rounded-full text-[24px] font-semibold border transition-all duration-300 cursor-pointer"
+        [class]="$index % 2 == 0 ? 'border-main text-main hover:text-black hover:bg-main' : 'border-[#C8CBD0] text-[#C8CBD0] hover:text-black hover:bg-[#C8CBD0]'">
+        {{gen.name}} </li>
+      }
+      }@else {
+      @for (item of [1,2,3,4,5,6,7,8]; track $index) {
+      <li class="text-center p-2 rounded-full text-[24px] font-semibold w-[100px] h-2 bg-gray-300 animate-pulse"></li>
+
+      }
+      }
+
+    </ul>
+  </div>
+</section>

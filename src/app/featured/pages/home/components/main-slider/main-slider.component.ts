@@ -16,6 +16,7 @@ import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { TermPipe } from '../../../../../core/pipe/term.pipe';
 import { RouterLink } from '@angular/router';
 import { SkeletonMainSliderComponent } from '../../../../../shared/components/ui/skeleton-main-slider/skeleton-main-slider.component';
+import { MainSliderInEveryPageComponent } from "../../../../../shared/components/business/main-slider-in-every-page/main-slider-in-every-page.component";
 
 @Component({
   selector: 'app-main-slider',
@@ -25,7 +26,8 @@ import { SkeletonMainSliderComponent } from '../../../../../shared/components/ui
     TermPipe,
     RouterLink,
     SkeletonMainSliderComponent,
-  ],
+    MainSliderInEveryPageComponent
+],
   templateUrl: './main-slider.component.html',
   styleUrl: './main-slider.component.css',
 })
@@ -52,7 +54,6 @@ export class MainSliderComponent implements OnInit {
     this._movieService.getTrendingMovies().subscribe({
       next: (res) => {
         this.trendingMoive = res.results;
-        this.movieNumber.set(5);
       },
       error: (err) => {
         console.log(err);

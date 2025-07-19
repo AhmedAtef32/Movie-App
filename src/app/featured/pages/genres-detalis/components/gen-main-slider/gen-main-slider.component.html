@@ -1,0 +1,8 @@
+@if (movieOrSeries) {
+<div class="relative">
+
+  <app-main-slider-in-every-page [pathImage]="pathImage" [movies]="movieOrSeries"></app-main-slider-in-every-page>
+</div>
+}@else {
+<app-skeleton-main-slider></app-skeleton-main-slider>
+}

@@ -26,4 +26,23 @@ export const routes: Routes = [
       ),
     title: 'Series Details',
   },
+
+  {
+    path: 'genres',
+    loadComponent: () =>
+      import('./featured/pages/genres/genres.component').then(
+        (c) => c.GenresComponent
+      ),
+    title: 'Genres',
+  },
+
+
+  {
+    path: 'gen/:grnName/:type/:id',
+    loadComponent: () =>
+      import('./featured/pages/genres-detalis/genres-detalis.component').then(
+        (c) => c.GenresDetalisComponent
+      ),
+    title: 'Genres Detalis',
+  },
 ];

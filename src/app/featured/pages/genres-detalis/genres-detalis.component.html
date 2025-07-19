@@ -1,0 +1,36 @@
+<section>
+  <app-gen-main-slider [movieOrSeries]="movieOrSeries" [id]="id"></app-gen-main-slider>
+
+  <div class="flex justify-center flex-col my-5">
+    <h2 class="text-[30px] font-bold text-center text-white mt-6">
+      Category
+    </h2>
+    <h1 class="text-[36px] font-bold text-center text-main "> {{genName}} </h1>
+  </div>
+
+  @if (movieOrSeries) {
+
+    <app-gen-movies-or-series [type]="type" [movieOrSeries]="movieOrSeries"></app-gen-movies-or-series>
+  }@else {
+    <app-skeleton-all-sliders></app-skeleton-all-sliders>
+  }
+
+
+  <div class="flex justify-center items-center mt-5 gap-3">
+
+    @if (numberOfPage > 1) {
+    <button
+    (click)="changePage(-1)"
+      class=" p-3 rounded-e-full rounded-s-full cursor-pointer border border-main  transition-all duration-300  text-[24px] group text-main hover:text-black hover:bg-main text-4xl font-bold">
+      Prev Page
+    </button>
+
+    }
+    <button
+    (click)="changePage(1)"
+      class=" p-3 rounded-e-full rounded-s-full cursor-pointer border border-main  transition-all duration-300  text-[24px] group text-main hover:text-black hover:bg-main text-4xl font-bold">
+      Next Page
+    </button>
+  </div>
+
+</section>
