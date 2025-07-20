@@ -12,8 +12,10 @@
     </a>
     <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
 
-      <i class="pi pi-search  text-white cursor-pointer " [style]="{'font-size': '1.5rem'}"></i>
+      <a routerLink="/search" class="text-white" routerLinkActive="text-main!" >
+        <i class="pi pi-search   cursor-pointer " [style]="{'font-size': '1.5rem'}"></i>
 
+      </a>
       <div class="md:hidden">
         <p-button type="button" (click)="visible1 = true" icon="pi pi-bars"
           [style]="{backgroundColor: 'transparent' , border: 'none', fontSize: '1.5rem'}" />
@@ -28,7 +30,8 @@
         </li>
         <li>
 
-          <a routerLink="/genres" routerLinkActive="text-main!" class="block py-2 px-3  text-white text-lg font-bold">Genres</a>
+          <a routerLink="/genres" routerLinkActive="text-main!"
+            class="block py-2 px-3  text-white text-lg font-bold">Genres</a>
         </li>
         <li>
           <a class="block py-2 px-3  text-white text-lg font-bold">Services</a>
@@ -42,13 +45,12 @@
 </nav>
 
 
-<p-drawer [style]="{background: '#0C1321' , border: 'none'}"  header="Notflix" [(visible)]="visible1" position="right"
-  >
+<p-drawer [style]="{background: '#0C1321' , border: 'none'}" header="Notflix" [(visible)]="visible1" position="right">
   <ul>
     <li class="py-2 px-3 text-white text-lg font-bold">
       <a routerLink="/home" routerLinkActive="text-main!" aria-current="page">Home</a>
     </li>
-    <li routerLink="/genres" class="py-2 px-3 text-white text-lg font-bold">
+    <li routerLink="/genres" routerLinkActive="text-main!" class="py-2 px-3 text-white text-lg font-bold">
       <a>Genres</a>
     </li>
     <li class="py-2 px-3 text-white text-lg font-bold">

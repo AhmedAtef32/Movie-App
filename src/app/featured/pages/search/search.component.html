@@ -1,0 +1,29 @@
+<section class="mt-20">
+  <div class="container mx-auto px-4">
+
+    <div class="md:w-[50%] mx-auto relative">
+      <input (keyDown.enter)="searchWithWord()" [(ngModel)]="searchWord"
+        class="w-full placeholder:text-gray-500 bg-[#0F172A] border border-main rounded-full py-2 px-4 outline outline-transparent  text-white focus:outline-main focus:border-main"
+        type="text" placeholder="Search for movies, TV ........">
+      <i (click)="searchWithWord()"
+        class="pi pi-search absolute top-[50%] right-5 text-[#c8cbd0] transform translate-y-[-50%] cursor-pointer"></i>
+    </div>
+
+
+    <p class="text-[#c8cbd0] text-center w-full md:w-[40%] text-[20px] mx-auto mt-4">
+      Find your favorite movie and TV show easily. Type in the title or keyword and discover detailed information.
+      Explore our catalog and find what to watch in seconds!
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10">
+
+      @for (movie of moviesAndSeries; track $index) {
+
+      <app-search-card [imagePath]="imagePath" [moive]="movie"></app-search-card>
+      }
+
+    </div>
+
+
+  </div>
+</section>

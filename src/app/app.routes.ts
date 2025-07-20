@@ -45,4 +45,13 @@ export const routes: Routes = [
       ),
     title: 'Genres Detalis',
   },
+
+   {
+    path: 'search',
+    loadComponent: () =>
+      import('./featured/pages/search/search.component').then(
+        (c) => c.SearchComponent
+      ),
+    title: 'Search',
+  },
 ];
