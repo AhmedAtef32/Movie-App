@@ -12,7 +12,7 @@
     </a>
     <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
 
-      <a routerLink="/search" class="text-white" routerLinkActive="text-main!" >
+      <a routerLink="/search" class="text-white" routerLinkActive="text-main!">
         <i class="pi pi-search   cursor-pointer " [style]="{'font-size': '1.5rem'}"></i>
 
       </a>
@@ -29,15 +29,17 @@
             routerLink="/home" routerLinkActive="text-main!" aria-current="page">Home</a>
         </li>
         <li>
+          <a routerLink="/movies" routerLinkActive="text-main!"
+            class="block py-2 px-3  text-white text-lg font-bold">Movies</a>
+        </li>
+        <li>
+          <a routerLink="/series" routerLinkActive="text-main!"
+            class="block py-2 px-3  text-white text-lg font-bold">Series</a>
+        </li>
+        <li>
 
           <a routerLink="/genres" routerLinkActive="text-main!"
             class="block py-2 px-3  text-white text-lg font-bold">Genres</a>
-        </li>
-        <li>
-          <a class="block py-2 px-3  text-white text-lg font-bold">Services</a>
-        </li>
-        <li>
-          <a class="block py-2 px-3  text-white text-lg font-bold">Contact</a>
         </li>
       </ul>
     </div>
@@ -50,14 +52,14 @@
     <li class="py-2 px-3 text-white text-lg font-bold">
       <a routerLink="/home" routerLinkActive="text-main!" aria-current="page">Home</a>
     </li>
+    <li routerLink="/series" routerLinkActive="text-main!" class="py-2 px-3 text-white text-lg font-bold">
+      <a>Movies</a>
+    </li>
+    <li routerLink="/series" routerLinkActive="text-main!" class="py-2 px-3 text-white text-lg font-bold">
+      <a>Series</a>
+    </li>
     <li routerLink="/genres" routerLinkActive="text-main!" class="py-2 px-3 text-white text-lg font-bold">
       <a>Genres</a>
-    </li>
-    <li class="py-2 px-3 text-white text-lg font-bold">
-      <a>Services</a>
-    </li>
-    <li class="py-2 px-3 text-white text-lg font-bold">
-      <a>Contact</a>
     </li>
   </ul>
 </p-drawer>

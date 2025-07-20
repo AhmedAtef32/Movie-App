@@ -24,7 +24,7 @@
       <div class="container px-4 mx-auto">
         <div #movieDetails
           class="absolute  bottom-0 left-1/2 md:left-[5%]  top-[50%] md:top-[50%] transform -translate-x-1/2 md:-translate-x-0  animate__animated animate__fadeInUp ">
-          <h2 class="text-white text-xl font-bold text-center md:text-start md:text-4xl mb-4 ">
+          <h2 class="text-white text-xl font-bold text-center md:text-start md:text-4xl mb-4  md:w-[70%]">
             {{ trendMovie.title }}
           </h2>
 
@@ -41,7 +41,7 @@
             term : 65}}.....</p>
 
           <div class=" flex items-center justify-center md:justify-start mt-4 lg:hidden">
-            <button [routerLink]="['/movieDetails/', trendMovie.id]"
+            <button [routerLink]="[trendMovie.media_type === 'movie' ? '/movieDetails/' : '/seriesDetails/', trendMovie.id]"
               class="bg-main p-3 rounded-full cursor-pointer hover:bg-main-hover transition-all duration-200"><i
                 class="fa-solid fa-play"></i> Watch trailer now </button>
           </div>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="absolute top-[50%] md:left-[60%]  transform -translate-x-1/2  hidden lg:block ">
-          <button [routerLink]="['/movieDetails/', trendMovie.id]"
+          <button [routerLink]="[trendMovie.media_type === 'movie' ? '/movieDetails/' : '/seriesDetails/', trendMovie.id]"
             class=" p-3 rounded-full cursor-pointer  transition-all duration-200 flex items-center justify-center gap-4 text-[24px] group text-white hover:text-main text-4xl font-bold">
             <p
               class="size-30  border-2 border-main rounded-full flex items-center justify-center group-hover:bg-main transition-all duration-300">

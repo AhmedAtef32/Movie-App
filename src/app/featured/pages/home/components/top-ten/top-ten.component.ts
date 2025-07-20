@@ -6,6 +6,7 @@ import { TopTenService } from '../../../../../shared/services/topTen/top-ten.ser
 import { IMovie } from '../../../../../shared/interfaces/movie';
 import { TopTenSliderComponent } from '../../../../../shared/components/business/top-ten-slider/top-ten-slider.component';
 import { SkeletonAllSlidersComponent } from "../../../../../shared/components/ui/skeleton-all-sliders/skeleton-all-sliders.component";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-top-ten',
   imports: [CardTopTenComponent, TopTenSliderComponent, SkeletonAllSlidersComponent],
@@ -15,9 +16,11 @@ import { SkeletonAllSlidersComponent } from "../../../../../shared/components/ui
 export class TopTenComponent implements OnInit {
   private readonly _movieService = inject(MoivesService);
   private readonly _topTenService = inject(TopTenService);
+   readonly _router = inject(Router);
   imagePath: string = this._movieService.PathImageUrlWithLowQuality;
   topTenMovieOrSeries!: IMovie[] | undefined;
-  topTenWord: string = 'Movie';
+  topTenWord: string = this._router.url.includes('series') ? 'tv' : 'Movie';
+  // 'Movie'
   ngOnInit(): void {
     this.getTopTen();
   }
@@ -28,8 +31,8 @@ export class TopTenComponent implements OnInit {
    * The data will be logged in the console.
    * @param search {string} 'movie' or 'series' - Defaults to 'movie'
    */
-  getTopTen(search: string = 'Movie') {
-    this._topTenService.getTop(search).subscribe({
+  getTopTen() {
+    this._topTenService.getTop(this.topTenWord).subscribe({
       next: (res) => {
         this.topTenMovieOrSeries = res.results;
       },
@@ -45,7 +48,6 @@ export class TopTenComponent implements OnInit {
     this.topTenMovieOrSeries = undefined;
     let ele = event.target as HTMLSelectElement;
     this.topTenWord = ele.value;
-    console.log(this.topTenWord);
-    this.getTopTen(ele.value);
+    this.getTopTen();
   }
 }

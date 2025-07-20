@@ -1,7 +1,8 @@
 <div [routerLink]="[ type ==='Movie'? '/movieDetails':'/seriesDetails', moive.id]"
-  class="relative rounded-xl overflow-hidden group cursor-pointer border-2 bodrer-transparent hover: hover:border-main   transition-all duration-300">
-  <div class="w-full   ">
-    <img loading="lazy" [src]="imagePath + moive.poster_path" [alt]="moive.title" class="w-full h-full   ">
+  class="relative rounded-xl overflow-hidden group cursor-pointer border-2 bodrer-transparent hover: hover:border-main h-full  transition-all duration-300">
+  <div class="w-full  h-full">
+    <img loading="lazy" [src]=" moive.poster_path ? imagePath + moive.poster_path : 'images/download.png'"
+      [alt]="moive.title" class="w-full h-full   ">
   </div>
   <div
     class="absolute bottom-0 left-0 right-0  p-4 h-full flex items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300">

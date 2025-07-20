@@ -34,10 +34,10 @@ export class TopTenSliderComponent {
         items: 2,
       },
       740: {
-        items: 4,
+        items: 3,
       },
       940: {
-        items: 6,
+        items: 5,
       },
     },
     nav: false,

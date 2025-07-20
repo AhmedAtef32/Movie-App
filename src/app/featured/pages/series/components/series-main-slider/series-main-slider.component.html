@@ -1,0 +1,8 @@
+@if (trendingSeries) {
+<section class="relative">
+
+  <app-main-slider-in-every-page [pathImage]="pathImage" [movies]="trendingSeries"></app-main-slider-in-every-page>
+</section>
+}@else {
+<app-skeleton-main-slider></app-skeleton-main-slider>
+}

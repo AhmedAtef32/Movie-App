@@ -36,10 +36,6 @@ export class MainSliderComponent implements OnInit {
 
   trendingMoive!: ItrendingMovie[];
   pathImage: string = this._movieService.PathImageUrl;
-  movieNumber: WritableSignal<number> = signal(1);
-  counter: WritableSignal<number> = signal(1);
-  @ViewChildren('movieDetails') movieDetails!: ElementRef<HTMLElement>[];
-  carouselLoaded: boolean = false;
 
   ngOnInit() {
     this.getTrendingMovies();
@@ -61,43 +57,7 @@ export class MainSliderComponent implements OnInit {
     });
   }
 
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    autoplay: true,
-    autoHeight: false,
-    lazyLoad: true,
-    dots: false,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    margin: 20,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1,
-      },
-    },
-    nav: false,
-  };
 
-  onTranslated(event: SlidesOutputData) {
-    this.movieDetails.forEach((ele) => {
-      ele.nativeElement.classList.remove('animate__fadeInUp');
-      ele.nativeElement.classList.add('opacity-0');
 
-      setTimeout(() => {
-        ele.nativeElement.classList.add('opacity-100');
-        ele.nativeElement.classList.add('animate__fadeInUp');
-      }, 30);
-    });
 
-    this.counter.set(event.startPosition! + 1);
-  }
-
-  onCarouselReady() {
-    this.carouselLoaded = true;
-  }
 }

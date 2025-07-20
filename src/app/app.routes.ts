@@ -54,4 +54,21 @@ export const routes: Routes = [
       ),
     title: 'Search',
   },
+
+  {
+    path: 'movies',
+    loadComponent: () =>
+      import('./featured/pages/movie/movie.component').then(
+        (c) => c.MovieComponent
+      ),
+    title: 'Movies',
+  },
+   {
+    path: 'series',
+    loadComponent: () =>
+      import('./featured/pages/series/series.component').then(
+        (c) => c.SeriesComponent
+      ),
+    title: 'Sreies',
+  },
 ];

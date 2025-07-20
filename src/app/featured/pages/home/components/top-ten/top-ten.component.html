@@ -14,6 +14,7 @@
         <p class="text-3xl font-medium text-[rgba(255,255,255,0.5)] mb-4 md:mb-0"> {{topTenWord}} <br> Today</p>
       </div>
 
+      @if(!_router.url.includes('movie') && !_router.url.includes('series')) {
       <div class="relative">
         <i
           class="pi pi-angle-down text-[rgba(255,255,255,0.5)] absolute top-[50%] transform translate-y-[-50%] right-1"></i>
@@ -23,6 +24,8 @@
           <option value="Series"> Series </option>
         </select>
       </div>
+      }
+
 
     </div>
 
@@ -31,9 +34,10 @@
   </div>
 
   @if (topTenMovieOrSeries) {
-    <app-top-ten-slider [topTenWord]="topTenWord"  [MoviesOrSeries]="topTenMovieOrSeries" [imagePath]="imagePath"></app-top-ten-slider>
+  <app-top-ten-slider [topTenWord]="topTenWord" [MoviesOrSeries]="topTenMovieOrSeries"
+    [imagePath]="imagePath"></app-top-ten-slider>
   }@else {
-    <app-skeleton-all-sliders></app-skeleton-all-sliders>
+  <app-skeleton-all-sliders></app-skeleton-all-sliders>
   }
 
 </section>

@@ -1,0 +1,8 @@
+<Section class="mt-14">
+  @if (series) {
+
+    <app-card-one-movie [isThisMovie]="true" [movieOrSeries]="series" [imagePath]="imagePath"></app-card-one-movie>
+  }@else {
+    <app-skeleton-main-slider></app-skeleton-main-slider>
+  }
+</Section>
