@@ -73,10 +73,10 @@
           <div class="movie__Icons flex items-center justify-center md:justify-start gap-2 mt-4">
             @if (isThisFav) {
 
-              <i (click)="deleteFromFav()" class="pi pi pi-heart-fill text-[red] cursor-pointer me-5" [style]="'font-size:1.5rem;'"></i>
+              <i (click)="deleteFromFav()" class="pi pi pi-heart-fill text-[red] cursor-pointer " [style]="'font-size:1.5rem;'"></i>
             }@else {
 
-              <i (click)="addTofav()" class="pi pi-heart text-[red] me-5 cursor-pointer" [style]="'font-size:1.5rem;'"></i>
+              <i (click)="addTofav()" class="pi pi-heart text-[red]  cursor-pointer" [style]="'font-size:1.5rem;'"></i>
             }
             <!-- <i class="pi pi-bookmark text-main cursor-pointer" [style]="'font-size:1.5rem;'"></i> -->
           </div>
