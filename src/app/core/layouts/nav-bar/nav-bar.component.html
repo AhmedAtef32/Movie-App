@@ -12,6 +12,16 @@
     </a>
     <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
 
+      <div class="relative">
+        <a routerLink="/favorites" class="text-white me-3 " routerLinkActive="text-main!">
+          <i class="pi pi-heart   cursor-pointer " [style]="{'font-size': '1.5rem'}"></i>
+
+        </a>
+        <p
+          class="absolute top-[-2px] left-[-10px] w-4 h-4 text-xs leading-tight text-center text-white bg-main rounded-full">
+          {{ this._authService.favoriteitems$().length }}</p>
+      </div>
+
       <a routerLink="/search" class="text-white" routerLinkActive="text-main!">
         <i class="pi pi-search   cursor-pointer " [style]="{'font-size': '1.5rem'}"></i>
 
@@ -47,19 +57,20 @@
 </nav>
 
 
+<!-- sideBar -->
 <p-drawer [style]="{background: '#0C1321' , border: 'none'}" header="Notflix" [(visible)]="visible1" position="right">
   <ul>
     <li class="py-2 px-3 text-white text-lg font-bold">
-      <a routerLink="/home" routerLinkActive="text-main!" aria-current="page">Home</a>
+      <a (click)="visible1=false" routerLink="/home" routerLinkActive="text-main!" aria-current="page">Home</a>
     </li>
-    <li routerLink="/movies" routerLinkActive="text-main!" class="py-2 px-3 text-white text-lg font-bold">
-      <a>Movies</a>
+    <li class="py-2 px-3 text-white text-lg font-bold">
+      <a (click)="visible1=false" routerLink="/movies" routerLinkActive="text-main!">Movies</a>
     </li>
-    <li routerLink="/series" routerLinkActive="text-main!" class="py-2 px-3 text-white text-lg font-bold">
-      <a>Series</a>
+    <li class="py-2 px-3 text-white text-lg font-bold">
+      <a (click)="visible1=false" routerLink="/series" routerLinkActive="text-main!">Series</a>
     </li>
-    <li routerLink="/genres" routerLinkActive="text-main!" class="py-2 px-3 text-white text-lg font-bold">
-      <a>Genres</a>
+    <li class="py-2 px-3 text-white text-lg font-bold">
+      <a (click)="visible1=false" routerLink="/genres" routerLinkActive="text-main!">Genres</a>
     </li>
   </ul>
 </p-drawer>

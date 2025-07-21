@@ -56,6 +56,8 @@ export class MovieDetailsComponent implements OnInit {
     this._movieService.getMovieDetails(this.movieID).subscribe({
       next: (res) => {
         this.MovieDeatails = res;
+        console.log(res);
+
       }
     });
   }
@@ -82,7 +84,7 @@ export class MovieDetailsComponent implements OnInit {
       next: (res) => {
         this.MovieImages = res;
         console.log(this.MovieImages);
-        
+
       }
     });
   }

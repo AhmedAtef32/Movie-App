@@ -1,23 +1,25 @@
 <div [routerLink]="[topTenWord() == 'Movie' ? '/movieDetails' : '/seriesDetails', movie()?.id]"
   class="flex items-end  group cursor-pointer">
-  <div class=" relative flex items-baseline -right-4 group-hover:-right-2 transition-all duration-300">
+  <div class=" relative flex items-baseline -right-4 group-hover:-right-2 self-end transition-all duration-300">
     <p
-      class="-z-10 movie__number text-7xl font-bold text-primary sm:text-9xl text-outline   text-transparent  group-hover:text-main    transition-all duration-300">
+      class=" movie__number text-7xl font-bold text-primary sm:text-9xl text-outline   text-transparent  group-hover:text-main    transition-all duration-300">
       <span class="latter__shadow">{{index() +1}}</span>
     </p>
   </div>
   <div
     class="relative rounded-xl overflow-hidden group cursor-pointer border-2 bodrer-transparent hover: hover:border-main   transition-all duration-300">
-    <div class="w-full">
+    <div class="w-full  h-full">
       <img loading="lazy" [src]=" imagePath() + movie()?.backdrop_path" alt="moive.title"
         class=" w-full h-[350px] md:h-[300px]  object-cover">
     </div>
+
     <div
-      class="absolute bottom-0 left-0 right-0  p-4 h-full flex items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300">
+      class="absolute bottom-0 left-0 right-0  p-4 h-full flex items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
       <div>
         <a class="bg-main   rounded-full  size-11 flex items-center justify-center "> <i
             class="pi pi-arrow-up-right"></i></a>
       </div>
     </div>
+
   </div>
 </div>

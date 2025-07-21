@@ -11,7 +11,7 @@
 
 <owl-carousel-o [options]="customOptions" #carousel (changed)="onTranslated($event)">
 
-  @for (trendMovie of movies.slice(0,5); track trendMovie.id) {
+  @for (trendMovie of movies?.slice(0,5); track trendMovie.id) {
   <ng-template carouselSlide>
     <div class="relative h-[90vh] w-full overflow-hidden bg-cover bg-center bg-no-repeat" fetchpriority="high"
       [style.backgroundImage]="'url('+pathImage+trendMovie.backdrop_path+')'">

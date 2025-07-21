@@ -71,4 +71,12 @@ export const routes: Routes = [
       ),
     title: 'Sreies',
   },
+  {
+    path: 'favorites',
+    loadComponent: () =>
+      import('./featured/pages/favourtie/favourtie.component').then(
+        (c) => c.FavourtieComponent
+      ),
+    title: 'Favorites',
+  },
 ];

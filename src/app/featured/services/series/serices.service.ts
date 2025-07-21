@@ -80,7 +80,7 @@ export class SericesService {
     if (!this.dramaSeries$) {
       this.dramaSeries$ = this._http
         .get<ItrendingMovie[]>(
-          `${enviro.baseurl}/discover/movie?with_genres=18&language=en-US&page=1`
+          `${enviro.baseurl}/discover/tv?with_genres=18&language=en-US&page=1`
         )
         .pipe(shareReplay(1));
     }

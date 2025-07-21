@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, isPlatformBrowser } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -19,9 +19,8 @@ import { ItrendingMovie } from '../../../../featured/interfaces/itrending-movie'
   styleUrl: './main-slider-in-every-page.component.css',
 })
 export class MainSliderInEveryPageComponent {
-
-  @Input({required:true}) movies!:ItrendingMovie[]
-  @Input({required:true}) pathImage!:string
+  @Input({ required: true }) movies!: ItrendingMovie[];
+  @Input({ required: true }) pathImage!: string;
   movieNumber: WritableSignal<number> = signal(5);
   counter: WritableSignal<number> = signal(1);
   @ViewChildren('movieDetails') movieDetails!: ElementRef<HTMLElement>[];

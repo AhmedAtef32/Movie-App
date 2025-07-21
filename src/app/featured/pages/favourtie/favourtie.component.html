@@ -1,0 +1,45 @@
+<section class="mt-20">
+  <div class="container mx-auto px-4">
+
+    <h1 class="text-[30px] font-medium text-center text-white">Favourtie</h1>
+
+    @if (favItems.length <= 0) { <p class="text-[20px] font-normal text-[rgba(255,255,255,0.5)]
+   text-center mt-3">You haven't added any content to your favorites yet.</p>
+
+      <button routerLink="/home"
+        class="bg-transparent border border-main  text-main hover:bg-main hover:text-black transition-colors duration-300 px-4 py-2 rounded-md mt-5 mx-auto block cursor-pointer rounded-e-full rounded-s-full">
+        Explore Now
+      </button>
+
+      }@else {
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-5">
+        @for (fav of favItems; track $index) {
+
+        <div
+          class=" rounded-xl overflow-hidden group cursor-pointer border-2 bodrer-transparent hover: hover:border-[red] h-full  transition-all duration-300">
+          <div class="w-full  h-full relative">
+            <img loading="lazy" [src]=" fav.poster_path ? imagePath + fav.poster_path : 'images/download.png'"
+              [alt]="fav.title" class="w-full h-full   ">
+
+                <div
+            class="absolute bottom-0 left-0 right-0  p-4 h-full flex items-center justify-center bg-[rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300">
+            <div>
+              <a (click)="removeItem(fav)" class="bg-[red]   rounded-full  size-11 flex items-center justify-center "><i
+                  class="pi pi-trash text-white cursor-pointer" [style]="{'font-size': '1.5rem'}"></i></a>
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+
+
+        }
+      </div>
+
+      }
+
+  </div>
+
+</section>
